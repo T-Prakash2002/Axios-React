@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { contextA } from '../App';
 import Nav from './Nav';
 import Card from './Card';
+import Form from './Form';
 
 function Home() {
 
@@ -14,6 +15,9 @@ return (
 
         <div className="row">
             <Nav />
+        </div>
+        <div className="row">
+            <Form />
         </div>
         
         <div className="row m-3">

@@ -1,13 +1,22 @@
 
 
+form{
+    margin-top: 90px;
+    background-color: azure;
+    padding: 30px;
+    box-shadow: 6px 0 16px black;
+    border-radius: 10px;
+}
 .col{
     display: flex;
     flex-direction: column;
     
 }
 .card{
+    margin-top: 70px;
     width: 18rem;
     min-height: 28rem;
     box-shadow: 0 0 18px rgba(144, 230, 222, 0.521);
     
 }
+

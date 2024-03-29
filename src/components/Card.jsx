@@ -13,11 +13,10 @@ return (
 
 <div className="card-body bg-warning-subtle p-3">
     
-
-    <h6 className="card-subtitle mb-2 text-body-secondary">
-        <strong>User Name:</strong>
-        {data.username}
-    </h6>
+    <p className="card-text">
+        <strong>Phone:</strong>
+        {data.phone}
+    </p>
 
     <p className="card-text">
         <strong>Email:</strong>
@@ -31,10 +30,7 @@ return (
             data.website
         }
     </p>
-    <p className="card-text">
-        <strong>Phone:</strong>
-        {data.phone}
-    </p>
+
     <p className="card-text">
         <strong>City:</strong>
         {data.address.city},
@@ -52,9 +48,9 @@ return (
 </div>
     <div className="card-footer d-flex justify-content-between bg-warning">
         
-        <button className="btn btn-outline-success">Edit</button>
+        <button className="btn btn-outline-secondary">Edit</button>
 
-        <button className="btn btn-outline-danger">Delete</button>
+        <button className="btn btn-outline-dark">Delete</button>
 
     </div>
 
