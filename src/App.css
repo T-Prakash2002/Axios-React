@@ -1,0 +1,13 @@
+
+
+.col{
+    display: flex;
+    flex-direction: column;
+    
+}
+.card{
+    width: 18rem;
+    min-height: 28rem;
+    box-shadow: 0 0 18px rgba(144, 230, 222, 0.521);
+    
+}
