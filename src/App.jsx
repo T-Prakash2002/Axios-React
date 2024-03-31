@@ -6,6 +6,7 @@ import './App.css'
 
 
 
+
 export const contextA=createContext();
 
 function App() {
@@ -15,7 +16,7 @@ const [state,dispatch]=useReducer(reducer,initial);
 
 useEffect(()=>{
 
-    axios.get(`https://jsonplaceholder.typicode.com/users`)
+  axios.get(`https://jsonplaceholder.typicode.com/users`)
     .then((response)=>{
 
 

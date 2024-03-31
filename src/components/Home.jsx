@@ -9,7 +9,7 @@ function Home() {
 const {state,dispatch}=useContext(contextA)
 
 
-//console.log('hii  ',state);
+
 return (
     <div className='container-fluid border'>
 

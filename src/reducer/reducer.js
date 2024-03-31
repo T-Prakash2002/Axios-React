@@ -11,6 +11,18 @@ export const reducer=(state,action)=>{
             return{
                 list:action.payload.list
             }
+        case('ADD_DATA'):
+
+        //console.log(state.list);
+            return{
+                ...state,
+                list:[
+                    ...state.list,
+                    {
+                        ...action.payload
+                    }
+                ]
+            }
     }
 }
 
