@@ -23,6 +23,16 @@ export const reducer=(state,action)=>{
                     }
                 ]
             }
+
+        case('DELETE-DATA'):
+            return{
+                ...state,
+                list:state.list.filter(item=>item.name !== action.payload)
+            }
+
+
+
+
     }
 }
 

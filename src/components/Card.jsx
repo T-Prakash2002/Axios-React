@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { contextA } from '../App';
+import axios from 'axios';
 
 function Card({data}) {
 
+    const {state,dispatch}=useContext(contextA);
 
+const deleteTask=(name)=>{
+    dispatch({
+        type:"DELETE-DATA",
+        payload:name
+    })
+
+
+    axios.delete(`https://jsonplaceholder.typicode.com/users/${name}`)
+    alert(`delete task`)
+}
 
 
 return (
@@ -50,7 +63,7 @@ return (
         
         <button className="btn btn-outline-secondary">Edit</button>
 
-        <button className="btn btn-outline-dark">Delete</button>
+        <button className="btn btn-outline-dark" onClick={(e)=>{deleteTask(data.name)}}>Delete</button>
 
     </div>
 

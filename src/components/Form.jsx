@@ -52,15 +52,21 @@ async function handleSubmit(e){
     }
 
 
-e.target.elements[0].value=''
-e.target.elements[1].value=''
-e.target.elements[2].value=''
-e.target.elements[3].value=''
-e.target.elements[4].value=''
-e.target.elements[5].value=''
+// e.target.elements[0].value=''
+// e.target.elements[1].value=''
+// e.target.elements[2].value=''
+// e.target.elements[3].value=''
+// e.target.elements[4].value=''
+// e.target.elements[5].value=''
+
+setCity('');
+setCompany('')
+setEmail('')
+setName('')
+setPhone('')
+setWebsite('')
 
 
-    
 dispatch({
     type:'ADD_DATA',
     payload:item
