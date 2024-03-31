@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { contextA } from '../App';
 import axios from 'axios';
 
-function Card({data}) {
+function Card({data,EditTask}) {
 
     const {state,dispatch}=useContext(contextA);
 
@@ -14,8 +14,9 @@ const deleteTask=(name)=>{
 
 
     axios.delete(`https://jsonplaceholder.typicode.com/users/${name}`)
-    alert(`delete task`)
+    alert(`deleted Details`)
 }
+
 
 
 return (
@@ -61,7 +62,7 @@ return (
 </div>
     <div className="card-footer d-flex justify-content-between bg-warning">
         
-        <button className="btn btn-outline-secondary">Edit</button>
+        <button className="btn btn-outline-secondary" onClick={(e)=>EditTask(data.name)}>Edit</button>
 
         <button className="btn btn-outline-dark" onClick={(e)=>{deleteTask(data.name)}}>Delete</button>
 

@@ -3,23 +3,28 @@ import { contextA } from '../App';
 import axios from 'axios';
 
 
-function Form() {
+function Form({isEditing,
+                name,setName,
+                userName,
+                phone,setPhone,
+                email,setEmail,
+                website,setWebsite,
+                city,setCity,
+                company,setCompany,
+                setIsEditing
+                }){
 
-    
 
     const {state,dispatch}=useContext(contextA);
 
-
+    
     const [id,setId]=useState(state.list.length)
-    const [name,setName]=useState('');
-    const [phone,setPhone]=useState('');
-    const [email,setEmail]=useState('');
-    const [website,setWebsite]=useState('');
-    const [city,setCity]=useState('');
-    const [company,setCompany]=useState('');
+
 useEffect(()=>{
     setId(state.list.length);
 },[])
+
+
 
 async function handleSubmit(e){
 
@@ -52,13 +57,6 @@ async function handleSubmit(e){
     }
 
 
-// e.target.elements[0].value=''
-// e.target.elements[1].value=''
-// e.target.elements[2].value=''
-// e.target.elements[3].value=''
-// e.target.elements[4].value=''
-// e.target.elements[5].value=''
-
 setCity('');
 setCompany('')
 setEmail('')
@@ -84,9 +82,53 @@ dispatch({
 
 }
 
+async function update(e){
+    
+    e.preventDefault();
+
+    const selected_item=state.list.filter(i=>i.username===userName)
+
+
+        const item={
+        "id": selected_item[0].id,
+        "name": name,
+        "username":selected_item[0].username,
+        "email": email,
+        "address": {
+            "street": selected_item[0].address.street,
+            "suite": selected_item[0].address.suite,
+            "city": city,
+            "zipcode":selected_item[0].address.zipcode ,
+            "geo": {
+                "lat": selected_item[0].address.geo.lat,
+                "lng": selected_item[0].address.geo.lng,
+            }
+        },
+        "phone":phone,
+        "website":website,
+        "company": {
+            "name": company,
+            "catchPhrase": selected_item[0].company.catchPhrase,
+            "bs": selected_item[0].company.bs
+        }
+    }
+
+    dispatch({
+        type:'UPDATE-DATA',
+        payload:item
+
+    })
+    setIsEditing(false);
+
+
+
+
+}
+
+
 return (
     <div className="col-12  ">
-    <form className='mt-5 d-grid justify-content-center gap-2'  onSubmit={handleSubmit}>
+    <form className='mt-5 d-grid justify-content-center gap-2'>
 
         <input 
         type="text" 
@@ -136,7 +178,13 @@ return (
         onChange={(e)=>{setCompany(e.target.value)}}
         />
         <br />
-        <button type="submit" className='form-control'>Submit</button>
+
+        <button type="submit" className='form-control'
+        onClick={isEditing?update:handleSubmit}
+        >
+            {isEditing ? 'Update Details' : 'Add Details'}
+            
+            </button>
 
     </form>
     </div>
