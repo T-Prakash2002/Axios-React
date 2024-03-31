@@ -73,7 +73,7 @@ dispatch({
 
 });
 
-    let createlist=await axios.post(`https://jsonplaceholder.typicode.com/users`,{li:item})
+    await axios.post(`https://jsonplaceholder.typicode.com/users`,{li:item})
     .then((Response)=>alert(` List Successfully Created`))
     .catch((error)=>{
         console.log("Error:\n"+error);
@@ -120,9 +120,18 @@ async function update(e){
     })
     setIsEditing(false);
 
+    setCity('');
+    setCompany('')
+    setEmail('')
+    setName('')
+    setPhone('')
+    setWebsite('')
 
 
-
+    await axios.put(`https://jsonplaceholder.typicode.com/users/${selected_item[0].id}`,item)
+    .then((Response)=>alert("Updated Data Successfully"))
+    .catch((e)=>alert(`Error`))
+    
 }
 
 

@@ -12,8 +12,6 @@ export const reducer=(state,action)=>{
                 list:action.payload.list
             }
         case('ADD_DATA'):
-
-        //console.log(state.list);
             return{
                 ...state,
                 list:[
@@ -31,28 +29,7 @@ export const reducer=(state,action)=>{
             }
         case('UPDATE-DATA'):  
 
-            //console.log(action.payload)
             let lo=state.list.filter(item=>item.username !== action.payload.username)
-
-    //         const a={
-    //                 ...updatelist,
-    //                 "id": action.payload.id,
-    //                 "name": action.payload.name,
-    //                 
-    //                 "email": action.payload.email,
-    //                 "address": {
-    //                     
-    //                     "city": action.payload.address.city,
-    //                     
-    //                 },
-    //                 "phone":action.payload.phone,
-    //                 "website":action.payload.website,
-    //                 "company": {
-    //                     "name": action.payload.company.name,
-    //                     
-    //                 }
-    // 
-    //         }
 
             
 
@@ -64,12 +41,10 @@ export const reducer=(state,action)=>{
                     }
                 ]
             }
-           // console.log(updatelist)
+
 
 
 
     }
 }
 
-
-//export{ initial,reducer};
